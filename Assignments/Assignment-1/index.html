@@ -33,9 +33,9 @@
         </fieldset>
 
         <fieldset class="login">
-            <legend style="font-size: 25px; color: black;">SignUp</legend>
+            <legend style="font-size: 25px; color: black;" >SignUp</legend>
 
-            <form action="#" method="get" onsubmit="return signin(this)">
+            <form action="#" method="post" onsubmit="return signup(this)">
 
                 <fieldset style="border: 1px solid white; border-radius: 5px;">
                     <legend >First Name</legend>
@@ -59,10 +59,35 @@
 
                 <input class="btn" type="submit" value="SignUp">
 
+            
+
             </form>
         </fieldset>
     </div>
 
+    <script>
+        
+
+        function signup(form) {
+            let fname = form.fname.value;
+            let lname = form.lname.value;
+            let email = form.email.value;
+            let password = form.password.value;
+
+            if (fname === "" || lname === "" || email === "" || password === "") {
+                alert("Please fill in all fields.");
+                return false;
+            }
+            localStorage.setItem("firstName", fname);
+            localStorage.setItem("lastName", lname);
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
+
+            alert("SignUp successful!");
+            form.reset();
+            return false;
+        }
+    </script>
 </body>
 
 </html>
