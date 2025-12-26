@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    
+    <h1>Good Morning!</h1>
+    <h3 id="msg"></h3>
+
+
+    <script>
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get("username");
+    if (username) {
+        document.getElementById("msg").innerText =
+            "Welcome, " + username + " to the Dashboard";
+    } else {
+        document.getElementById("msg").innerText =
+            "Welcome, Guest to the Dashboard";
+    }
+</script>
+</body>
+</html>

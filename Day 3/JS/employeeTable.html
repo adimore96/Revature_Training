@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Table</title>
+
+    <style>
+        table {
+            border: 1px solid black;
+            width: 500px;
+        }
+
+        td,
+        th {
+            border: 1px dotted black;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+     id name age salary -->
+    <center>
+        <h2>Employee Name</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>QWERTY</td>
+                    <td>22</td>
+                    <td>9999</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>XYZ</td>
+                    <td>21</td>
+                    <td>89999</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>PQR</td>
+                    <td>25</td>
+                    <td>125000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+        <h2>Canvas</h2>
+        <canvas id="box" width="200" height="200"></canvas>
+    </center>
+
+    <script>
+  var c = document.getElementById("box");
+  var ctx = c.getContext("2d");
+  // Face
+    ctx.beginPath();
+    ctx.arc(100, 100, 80, 0, Math.PI * 2);
+    ctx.fillStyle = "#FFD93D"; // yellow
+    ctx.fill();
+    ctx.closePath();
+
+    // Left eye
+    ctx.beginPath();
+    ctx.arc(70, 80, 8, 0, Math.PI * 2);
+    ctx.fillStyle = "#000";
+    ctx.fill();
+    ctx.closePath();
+
+    // Right eye
+    ctx.beginPath();
+    ctx.arc(130, 80, 8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.closePath();
+
+    // Smile
+    ctx.beginPath();
+    ctx.arc(100, 110, 40, 0, Math.PI);
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "#000";
+    ctx.stroke();
+    ctx.closePath();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+
+<body>
+    <!-- name image dob education -->
+        <fieldset style="width: 500px;" >
+            <legend>Profile</legend>
+            <form action="" style="align-content: start;">
+                <input type="text" name="name" placeholder="name" value="Aditya More"><br><br>
+                <label for="dob">Birth Date:</label>
+                <input type="date" name="dob" id="dob" value="2003-11-20"><br><br>
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image" ><br><br>
+
+                <!-- education -->
+                <label for="education">Education</label>
+                <select name="education" id="education">
+                    <option value="BE">B.E</option>
+                    <option value="B.Tech">B.Tech</option>
+                </select>
+                <br><br>
+
+                <!-- Skills -->
+                 <fieldset >
+                    <legend align="center">Technical Skills</legend>
+                    Java: <meter value="90" min="0" max="100" low="30" high="85"></meter>
+                    JavaScript: <meter value="86" min="0" max="100" low="30" high="85"></meter>
+                    React.js: <meter value="70" min="0" max="100" low="30" high="85"></meter>
+                    
+                 </fieldset>
+                 
+                
+            </form>
+        </fieldset>
+</body>
+
+</html>

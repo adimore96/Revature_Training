@@ -1,0 +1,12 @@
+body{
+    background-color: antiquewhite;
+}
+
+table{
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th,td{
+    padding: 15px 60px;
+}
