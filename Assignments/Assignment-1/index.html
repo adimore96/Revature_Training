@@ -16,7 +16,7 @@
         <fieldset class="login">
             <legend style="font-size: 25px; color: black;">SignIn</legend>
 
-            <form action="./dashboard.html" method="get">
+            <form action="./dashboard.html" method="get" onsubmit="return signin(this)">
 
                 <fieldset style="border: 1px solid white; border-radius: 5px;">
                     <legend >Email</legend>
@@ -66,7 +66,21 @@
     </div>
 
     <script>
-        
+        function signin(form) {
+            let email = form.email.value;
+            let password = form.password.value;
+
+            let storedEmail = localStorage.getItem("email");
+            let storedPassword = localStorage.getItem("password");
+
+            if (email === storedEmail && password === storedPassword) {
+                localStorage.setItem("isLoggedIn", "true");
+                return true; // Proceed to dashboard
+            } else {
+                alert("Invalid email or password.");
+                return false; // Prevent form submission
+            }
+        }
 
         function signup(form) {
             let fname = form.fname.value;
@@ -78,10 +92,12 @@
                 alert("Please fill in all fields.");
                 return false;
             }
+
             localStorage.setItem("firstName", fname);
             localStorage.setItem("lastName", lname);
             localStorage.setItem("email", email);
             localStorage.setItem("password", password);
+            localStorage.setItem("isLoggedIn", "false");
 
             alert("SignUp successful!");
             form.reset();
