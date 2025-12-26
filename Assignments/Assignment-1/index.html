@@ -28,13 +28,14 @@
                     <input type="password" name="password" id="password">
                 </fieldset>
 
+                <input class="btn" type="submit" value="SignIn">
             </form>
         </fieldset>
 
         <fieldset class="login">
             <legend style="font-size: 25px; color: black;">SignUp</legend>
 
-            <form action="#" method="get">
+            <form action="#" method="get" onsubmit="return signin(this)">
 
                 <fieldset style="border: 1px solid white; border-radius: 5px;">
                     <legend >First Name</legend>
@@ -56,9 +57,12 @@
                     <input type="password" name="password" id="password">
                 </fieldset>
 
+                <input class="btn" type="submit" value="SignUp">
+
             </form>
         </fieldset>
     </div>
+
 </body>
 
 </html>
