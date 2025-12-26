@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .dashboard-container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        nav {
+            background: #35424a;
+            color: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav ul {
+            padding: 0;
+            list-style: none;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #logout-btn {
+            background-color: #e8491d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #logout-btn:hover {
+            background-color: #cf3c13;
+        }
+        .containerr {
+            background: #ffffff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        #welcome-message {
+            margin-top: 20px;
+            font-size: 25px;
+            color: #333333;
+
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <title>Dashboard</title>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <button id="logout-btn">Logout</button>
+            </ul>
+        </nav>
+        
+        <div class="containerr">
+            <h1>Welcome to the Dashboard</h1>
+            <p id="welcome-message"></p>
+        </div>
+        
+        
+    </div>
+
+    <script>
+        // Check if user is logged in
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "index.html";
+        } else {
+            const firstName = localStorage.getItem("firstName");
+            document.getElementById("welcome-message").innerText = `Hello, ${firstName}!`;
+        }
+
+        // Logout functionality
+        document.getElementById("logout-btn").addEventListener("click", function() {
+            localStorage.setItem("isLoggedIn", "false");
+            window.location.href = "index.html";
+        }); 
+    </script>
+    
+</body>
+</html>
