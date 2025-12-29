@@ -1,0 +1,26 @@
+.container {
+    width: 90%;
+    height: 95vh;
+    margin: 0 auto;
+    max-width: 1200px;
+    background-image: url('https://img.freepik.com/free-vector/blank-blue-leafy-poster_53876-118169.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    /* font-family: 'Georgia', serif; */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #9e3333;
+
+    border-radius: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        background-position: bottom center;
+    }
+    
+}
