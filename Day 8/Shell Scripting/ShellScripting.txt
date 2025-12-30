@@ -1,0 +1,15 @@
+A shell scripting is a text file containing bunch of linux commands which is used for reusable purpose.
+
+file handling
+backup and monitoring
+
+DevOps & CI-CD automation
+
+
+types of shells
+    Shell commands
+    Bourne shell sh
+    Bash (Most Common) Bash
+    Z shell use bash.
+
+    
