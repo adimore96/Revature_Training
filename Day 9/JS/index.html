@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+<body>
+    <h1>JavaScript</h1>
+
+    <h2>Arrays</h2>
+    <input type="text" name="fruitInput" id="fruitInput" placeholder="Enter fruit name">
+    <button onclick="addFruit()">Add Fruit</button>
+    <button onclick="clearFruits()">Clear Fruits</button>
+    <p id="fruitList"></p>
+
+    <script>
+        var x=10;
+        let y=20;
+        const z=30;
+
+        function displayValues() {
+            console.log("Var x: " + x);
+            x++;
+            console.log("After incrementing, Var x: " + x);
+
+            console.log("Let y: " + y);
+            y++;
+            console.log("After incrementing, Let y: " + y); 
+            console.log("Const z: " + z);
+            // z++; // This will cause an error
+            // console.log("After incrementing, Const z: " + z);
+        }
+
+        // displayValues();
+    </script>
+    <script src="Arrays.js"></script>
+</body>
+</html>
