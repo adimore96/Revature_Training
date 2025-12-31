@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>JavaScript</title>
+</head>
+<body>
+
+    <h1>Welcome to Exercise 1</h1>
+    <p>This is simple HTML Document for Exercise 1</p>
+
+    <!-- Greet Message -->
+     <button onclick="greet()">Click Me!</button>
+
+     <!-- Taking input then add it and display addition -->
+      <div class="container">
+
+      
+        <h2>Simple Calculator</h2>
+        <input type="number" id="num1" placeholder="Enter first number"><br>
+        <input type="number" id="num2" placeholder="Enter second number"><br><br>
+        <div class="buttons">
+            <div class="actions">
+        <button onclick="addNumbers()">+</button>
+        <button onclick="subtractNumbers()">-</button>
+        <button onclick="multiplyNumbers()">*</button>
+        <button onclick="divideNumbers()">/</button>
+        </div>
+        <br>
+        <div>
+        <button onclick="clearInputs()">Clear Input</button>
+        <button onclick="clearResult()">Clear Result</button>
+        </div>
+        </div>
+        <p id="result"></p>
+
+        </div>
+
+    
+</body>
+</html>
