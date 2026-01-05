@@ -1,0 +1,24 @@
+<!-- 5. Array forEach – Real-Time Example
+You have a list of users and want to print a welcome message for each user.
+ Use forEach() to log messages. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach Example</title>
+</head>
+<body>
+    <h2>List of Users</h2>
+    <p id="userList"></p>
+    <script>
+        let users = ["Aditya", "Raj","ACER"];
+        let userList = document.getElementById("userList");
+        userList.innerHTML += "User Array ["+users + "]</br>";
+        users.forEach((value)=>{
+            userList.innerHTML += `Welcome ${value}<br>`
+        })
+    </script>
+</body>
+</html>
