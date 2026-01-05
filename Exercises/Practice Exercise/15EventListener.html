@@ -1,0 +1,40 @@
+<!-- 15. Event Listeners – Form Validation
+
+A form should display an error message when submitted without input.
+ Explain how addEventListener() helps. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+
+<h2>Form Validation</h2>
+
+<form id="myForm">
+    <input type="text" id="username" placeholder="Enter username">
+    <button type="submit">Submit</button>
+</form>
+
+<p id="error"></p>
+
+<script>
+    const form = document.getElementById("myForm");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // stop form submission
+
+        const username = document.getElementById("username").value;
+        const error = document.getElementById("error");
+
+        if (username === "") {
+            error.innerText = "Username is required!";
+        } else {
+            error.innerText = "Form submitted successfully!";
+        }
+    });
+</script>
+
+</body>
+</html>
