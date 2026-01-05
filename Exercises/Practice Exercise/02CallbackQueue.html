@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Queue</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Callback Queue</h1>
+        <p>This is the main Content for the webpage.</p>
+        <div class="adBar">
+            <h3>Advertisement</h3>
+            <p>This is an Ad Bar. It simulates ads loading after the main content.</p>
+        </div>
+    </div>
+
+    <script>
+        console.log("Main Content Loaded");
+
+        setTimeout(()=>{
+            console.log("Ad Loaded");
+            const adBar = document.querySelector('.adBar');
+            adBar.innerHTML += "<p>New Ad Content Loaded!</p>";
+        }, 500);
+
+        console.log("End of Script");
+    </script>
+</body>
+</html>
