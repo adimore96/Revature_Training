@@ -1,0 +1,26 @@
+<!-- 4. JSON.stringify()
+You want to store user details in localStorage.
+ Convert the following object into JSON string:
+{ username: "admin", role: "manager" } -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON.stringify Example</title>
+</head>
+<body>
+    <h1>JSON.stringify Example</h1>
+
+    <script>
+        let obj = { username: "admin", 
+                    role: "manager" }
+        
+        let JSONString = JSON.stringify(obj);
+
+        localStorage.setItem("userDetails",JSONString);
+    </script>
+</body>
+</html>
