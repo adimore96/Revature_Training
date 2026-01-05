@@ -1,0 +1,48 @@
+<!-- 8. Array reduce – Cart Total
+
+Calculate the total price of items in a shopping cart using reduce(). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart Total</title>
+</head>
+<body>
+
+<h2>Shopping Cart</h2>
+
+<ul id="cartItems"></ul>
+
+<button onclick="calculateTotal()">Calculate Total</button>
+
+<p id="total"></p>
+
+<script>
+    const cart = [
+        { name: "Laptop", price: 50000 },
+        { name: "Mouse", price: 500 },
+        { name: "Keyboard", price: 1500 }
+    ];
+
+    // Display cart items
+    const cartList = document.getElementById("cartItems");
+    cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item.name + " - ₹" + item.price;
+        cartList.appendChild(li);
+    });
+
+    // Calculate total using reduce
+    function calculateTotal() {
+        const totalPrice = cart.reduce((sum, item) => {
+            return sum + item.price;
+        }, 0);
+
+        document.getElementById("total").innerText =
+            "Total Price: ₹" + totalPrice;
+    }
+</script>
+
+</body>
+</html>
