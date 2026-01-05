@@ -1,0 +1,40 @@
+<!-- 9. Function Declaration vs Arrow Function
+Create a function to calculate GST using:
+Function Declaration
+Arrow Function
+Mention one key difference. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GST Calculation</title>
+</head>
+<body>
+
+<h2>GST Calculation</h2>
+
+<button onclick="calculateGST()">Using Function Declaration</button>
+<button onclick="calculateGSTArrow()">Using Arrow Function</button>
+
+<p id="result"></p>
+
+<script>
+    // Function Declaration
+    function calculateGST() {
+        const price = 1000;
+        const gst = price * 0.18;
+        document.getElementById("result").innerText =
+            "GST (Function Declaration): ₹" + gst;
+    }
+
+    // Arrow Function
+    const calculateGSTArrow = () => {
+        const price = 1000;
+        const gst = price * 0.18;
+        document.getElementById("result").innerText =
+            "GST (Arrow Function): ₹" + gst;
+    };
+</script>
+
+</body>
+</html>
