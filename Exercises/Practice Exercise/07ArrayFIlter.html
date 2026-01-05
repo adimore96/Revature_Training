@@ -1,0 +1,42 @@
+<!-- 6. Array map – Price Calculation
+An e-commerce site gives 10% discount on all prices.
+ Use map() to create a new discounted price list. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Filter</title>
+</head>
+<body>
+
+<h2>Available Products</h2>
+<button onclick="showAvailable()">Show In-Stock Products</button>
+
+<ul id="productList"></ul>
+
+<script>
+    const products = [
+        { name: "Laptop", inStock: true },
+        { name: "Mobile", inStock: false },
+        { name: "Headphones", inStock: true },
+        { name: "Keyboard", inStock: false },
+        { name: "Mouse", inStock: true }
+    ];
+
+    function showAvailable() {
+        const availableProducts = products.filter(product => product.inStock === true);
+
+        const list = document.getElementById("productList");
+        list.innerHTML = "";
+
+        availableProducts.forEach(product => {
+            const li = document.createElement("li");
+            li.textContent = product.name;
+            list.appendChild(li);
+        });
+    }
+</script>
+
+</body>
+</html>
