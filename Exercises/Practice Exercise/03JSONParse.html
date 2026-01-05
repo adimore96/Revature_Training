@@ -1,0 +1,53 @@
+
+<!-- 3. JSON.parse()
+You receive this API response as a string:
+'{"id":101,"name":"Laptop","price":50000}'
+ Convert it into a JavaScript object and access the name. -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON.parse() Implementation</title>
+ </head>
+ <body>
+
+    <h1>JSON.parse() Implementation</h1>
+    <p id="p">
+        Data Loading...
+    </p>
+
+
+    <script>
+        let p = document.getElementById("p");
+
+        let promise = new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                resolve( '{"id":101,"name":"Laptop","price":50000}'
+                )
+            }, 2000);
+        })
+
+        promise.then((obj)=>{
+            // we got here data in string format
+            console.log(obj);
+            p.innerHTML = "Data in raw format: "
+            p.innerHTML += obj;
+            return JSON.parse(obj); //parse it here
+        })
+        .then((data)=>{
+            // printing json object
+            console.log(data);
+            
+            
+            p.innerHTML += "<br> Data in object format <br>";
+            p.innerHTML += "ID: "+data.id+"</br>";
+            p.innerHTML += "Name: "+data.name+"</br>";
+            p.innerHTML += "Price: "+data.price;
+        })
+    </script>
+
+    
+ </body>
+ </html>
