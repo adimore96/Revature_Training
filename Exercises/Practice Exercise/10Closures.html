@@ -1,0 +1,48 @@
+<!-- 10. Closures – Secure Counter
+
+Create a counter function that cannot be directly modified from outside. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure Counter</title>
+</head>
+<body>
+
+<h2>Secure Counter (Closure)</h2>
+
+<button onclick="counter.increment()">Increment</button>
+<button onclick="counter.decrement()">Decrement</button>
+<button onclick="counter.get()">Get Value</button>
+
+<p id="output"></p>
+
+<script>
+    function createCounter() {
+        let count = 0; // private variable
+
+        return {
+            increment: function () {
+                count++;
+                document.getElementById("output").innerText =
+                    "Counter: " + count;
+            },
+            decrement: function () {
+                count--;
+                document.getElementById("output").innerText =
+                    "Counter: " + count;
+            },
+            get: function () {
+                document.getElementById("output").innerText =
+                    "Counter: " + count;
+            }
+        };
+    }
+
+    const counter = createCounter();
+
+    // counter.count = 100; ❌ Not possible
+</script>
+
+</body>
+</html>
