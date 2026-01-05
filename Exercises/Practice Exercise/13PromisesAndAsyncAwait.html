@@ -1,0 +1,59 @@
+<!-- 13. Promises & async/await
+
+Convert this promise-based API call into async/await:
+
+fetch(url).then(res => res.json()).then(data => console.log(data)); -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Async Await – Display Data</title>
+</head>
+<body>
+
+<h2>Posts</h2>
+<button onclick="getData()">Load Posts</button>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+</table>
+
+<script>
+    const url = "https://jsonplaceholder.typicode.com/posts";
+
+    async function getData() {
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+
+            const tableBody = document.getElementById("tableBody");
+            tableBody.innerHTML = "";
+
+            // Display only first 5 rows
+            data.slice(0, 5).forEach(post => {
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                    <td>${post.id}</td>
+                    <td>${post.title}</td>
+                    <td>${post.body}</td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
+</script>
+
+</body>
+</html>
