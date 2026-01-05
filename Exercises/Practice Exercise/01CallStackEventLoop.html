@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Stack and Event Loop</title>
+</head>
+<body>
+    <h2>Call Stack & Event Loop</h2>
+    <button type="button" onclick="startExec()">Start Execution</button>
+    <p id="para"></p>
+
+   <script>
+        function startExec(){
+            let p = document.getElementById("para");
+            p.innerHTML = "";
+        p.innerHTML += "Started <br>";
+
+        setTimeout(()=>{
+            p.innerHTML += "setTimeout in Execution <br>";
+        },800)
+
+        p.innerHTML += "Ended <br>";
+        }
+   </script>
+</body>
+</html>
