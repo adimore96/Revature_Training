@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Quiz Portal</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+<!-- START SCREEN -->
+<div class="card quiz-card shadow-lg" id="startScreen">
+    <div class="card-header text-center">
+        <h2>Mini Quiz Portal</h2>
+        <p class="text-light">Test your knowledge</p>
+    </div>
+    <div class="card-body text-center">
+        <input type="text" id="username" class="form-control mb-4" placeholder="Enter Your Name">
+        <button class="btn btn-success px-5" id="startTest">Start Test</button>
+    </div>
+</div>
+
+<!-- QUIZ SCREEN -->
+<div class="card quiz-card shadow-lg d-none" id="quizScreen">
+    <div class="card-header text-center">
+        <h4>Welcome, <span id="displayName"></span> 👋</h4>
+        <span class="timer-badge">⏱ <span id="timer">60</span> sec</span>
+    </div>
+
+    <div class="card-body">
+
+        <div class="progress mb-4">
+            <div class="progress-bar" id="progressBar" style="width:0%"></div>
+        </div>
+
+        <h5 id="question" class="mb-4"></h5>
+
+        <div class="list-group">
+            <button class="list-group-item option" data-option="0"></button>
+            <button class="list-group-item option" data-option="1"></button>
+            <button class="list-group-item option" data-option="2"></button>
+            <button class="list-group-item option" data-option="3"></button>
+        </div>
+
+        <div class="text-end mt-4">
+            <button class="btn btn-success px-4" id="nextBtn">Next ➜</button>
+        </div>
+    </div>
+</div>
+
+<!-- RESULT SCREEN -->
+<div class="card quiz-card shadow-lg mt-4 d-none result-card" id="resultScreen">
+    <div class="card-body text-center">
+        <h3>🎉 Quiz Completed!</h3>
+        <p>Name: <strong id="finalName"></strong></p>
+        <h4>Your Score: <span id="finalScore"></span>/5</h4>
+    </div>
+</div>
+
+</div>
+
+<script>
+$(document).ready(function () {
+
+let questions = [
+{q:"Which language is used for web apps?",options:["Python","Java","JavaScript","C++"],answer:2},
+{q:"Which HTML tag is used for JavaScript?",options:["<js>","<script>","<javascript>","<code>"],answer:1},
+{q:"Which company developed Java?",options:["Microsoft","Oracle","Sun Microsystems","IBM"],answer:2},
+{q:"Which keyword creates object in Java?",options:["create","object","new","class"],answer:2},
+{q:"Which is not a programming language?",options:["Python","HTML","Java","C"],answer:1}
+];
+
+let currentQuestion=0,score=0,selectedOption=null,timeLeft=60,timer,username="";
+
+$("#startTest").click(function(){
+    username=$("#username").val().trim();
+    if(username===""){alert("Enter your name");return;}
+    $("#displayName").text(username);
+    $("#startScreen").hide();
+    $("#quizScreen").removeClass("d-none");
+    startTimer();
+    loadQuestion();
+});
+
+function startTimer(){
+    timer=setInterval(()=>{
+        timeLeft--;
+        $("#timer").text(timeLeft);
+        if(timeLeft<=0){clearInterval(timer);showResult();}
+    },1000);
+}
+
+function loadQuestion(){
+    let q=questions[currentQuestion];
+    $("#question").text((currentQuestion+1)+". "+q.q);
+    $(".option").each(function(i){
+        $(this).text(q.options[i]).removeClass("active");
+    });
+    selectedOption=null;
+    $("#progressBar").css("width",(currentQuestion/questions.length)*100+"%");
+}
+
+$(".option").click(function(){
+    $(".option").removeClass("active");
+    $(this).addClass("active");
+    selectedOption=$(this).data("option");
+});
+
+$("#nextBtn").click(function(){
+    if(selectedOption===null){alert("Select an option");return;}
+    if(selectedOption===questions[currentQuestion].answer)score++;
+    currentQuestion++;
+    if(currentQuestion<questions.length)loadQuestion();
+    else showResult();
+});
+
+function showResult(){
+    clearInterval(timer);
+    $("#quizScreen").hide();
+    $("#resultScreen").removeClass("d-none");
+    $("#finalName").text(username);
+    $("#finalScore").text(score);
+    $("#progressBar").css("width","100%");
+}
+});
+</script>
+
+</body>
+</html>

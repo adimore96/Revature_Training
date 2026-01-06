@@ -1,0 +1,80 @@
+body {
+    font-family: sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+}
+
+.quiz-card {
+    max-width: 850px;
+    margin: auto;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+}
+
+.card-header {
+    background: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+input {
+    border-radius: 30px !important;
+    padding: 12px;
+    background-color: transparent !important;
+    color: #fff !important;
+    border: 1px solid rgba(255,255,255,0.5) !important;
+    
+}
+
+button {
+    border-radius: 30px !important;
+}
+
+.btn-success {
+    background: linear-gradient(45deg,#00c853,#64dd17);
+    border: none;
+}
+
+.btn-success:hover {
+    transform: scale(1.05);
+}
+
+.option {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    transition: 0.3s;
+    color: #fff;
+}
+
+.option:hover {
+    background: rgba(255,255,255,0.35);
+    transform: translateX(5px);
+}
+
+.option.active {
+    background: linear-gradient(45deg,#ff9800,#ff5722);
+    color: #fff;
+}
+
+.progress {
+    height: 10px;
+    border-radius: 20px;
+}
+
+.progress-bar {
+    background: linear-gradient(45deg,#00e5ff,#1de9b6);
+}
+
+.timer-badge {
+    background: linear-gradient(45deg,#ff5252,#ff1744);
+    padding: 6px 15px;
+    border-radius: 20px;
+}
+
+.result-card h3 {
+    font-size: 2rem;
+}
