@@ -131,3 +131,72 @@ select * from orders;
 create table backup_customers as select * from client_master;
 select * from backup_customers;
 
+-- 26. Display all customers.
+select * from client_master;
+
+-- 27. Display only name and email of customers.
+select name, email from client_master;
+
+-- 28. Find all employees with salary > 50000.
+select * from employees where salary > 50000;
+
+-- 29. List products ordered by price DESC.
+select * from products order by price desc;
+
+-- 30. Show distinct cities from customers.
+select  distinct city from client_master;
+
+-- 31. Count total number of customers.
+select count(customer_id) as TOTAL_CUSTOMER from client_master;
+
+-- 32. Find average salary of employees.
+insert into employees(f_name, last_name, email, salary, department_id) values("Raj","More","raj@gmail.com",95000,102);
+select avg(salary) as AVG_SALARY from employees;
+select * from employees;
+
+-- 33. Find maximum product price.
+select max(price) from products;
+
+-- 34. Find minimum order amount.
+select min(totalCost) from orders;
+
+-- 35. Calculate total sales amount.
+select sum(totalCost) from orders;
+
+-- 36. Show department-wise employee count.
+select count(department_id), department_id from employees group by department_id;
+insert into employees(f_name, last_name, email, salary, department_id) values("Dev","Moser","dev@gmail.com",93000,101);
+select * from employees;
+
+-- 37. Show department-wise average salary.
+select avg(salary) as AVG_SALARY, department_id as DEPT_ID from employees group by department_id;
+
+-- 38. Display only departments having more than 5 employees.
+select department_id from employees group by department_id having count(department_id)>=5;
+
+-- 39. Find total sales per customer
+select count(o.order_id) as TOTAL_SALES, o.customer_id as Customer_ID, cm.name as CUSTOMER_NAME from orders o 
+join client_master cm on cm.customer_id=o.customer_id  group by customer_id;
+
+-- 40. Find total revenue per month.
+select YEAR(order_date) AS year, MONTH(order_date) AS month, sum(order_id) as MONTH_REVENUE 
+from orders group by year(order_date), month(order_date) order by  year, month;
+select * from orders;
+
+-- 41. List employees who joined after 2021.
+update client_master set created_at = "2026-01-20 00:16:27" where customer_id = 4;
+select * from client_master;
+select * from client_master where year(created_at) > 2021;
+
+-- 42. Show orders between two dates.
+select * from orders where order_date between "2023-12-20" and "2026-01-13"  ;
+select * from orders;
+
+-- 43. Find customers from Delhi.
+select * from client_master where lower(location) like "delhi";
+
+-- 44. Sort employees by salary ASC
+select * from employees order by salary asc;
+
+-- 45. Display top 5 highest paid employees.
+select * from employees order by salary desc limit 5;
